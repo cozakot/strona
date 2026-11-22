@@ -1,0 +1,346 @@
+/* =========================================================
+   style.css – Kostka i Kawa
+   Jedyny plik własnych stylów serwisu (zasada 3).
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   SEKCJA 1. Marka: kolory i kroje (tylko tutaj, zasada 4)
+   --------------------------------------------------------- */
+:root {
+  --kolor-wiodacy: #1f4e5f;     /* turkus – menu, hero, stopka (9.08:1 z białym) */
+  --kolor-pomocniczy: #f2e8da;  /* piaskowy – tła sekcji */
+  --kolor-cta: #b3401f;         /* rdzawy – przycisk akcji (5.72:1 z białym) */
+  --kolor-tekst: #222222;       /* tekst (15.91:1 z białym) */
+
+  --font-naglowki: "Bitter", Georgia, serif;
+  --font-tekst: "Source Sans 3", Arial, sans-serif;
+
+  /* Bootstrap: kolor wiodący jako R, G, B */
+  --bs-primary: #1f4e5f;
+  --bs-primary-rgb: 31, 78, 95;
+  --bs-body-color: #222222;
+  --bs-body-color-rgb: 34, 34, 34;
+  --bs-body-font-family: var(--font-tekst);
+  --bs-link-color: #1f4e5f;
+  --bs-link-color-rgb: 31, 78, 95;
+  --bs-link-hover-color: #b3401f;
+  --bs-link-hover-color-rgb: 179, 64, 31;
+  --bs-border-radius: .6rem;
+  --bs-border-radius-lg: .9rem;
+}
+
+/* ---------------------------------------------------------
+   SEKCJA 2. Typografia i elementy ogólne
+   --------------------------------------------------------- */
+body {
+  font-family: var(--font-tekst);
+  color: var(--kolor-tekst);
+  font-size: 1.0625rem;
+}
+
+h1, h2, h3, .navbar-brand {
+  font-family: var(--font-naglowki);
+  font-weight: 700;
+}
+
+h1, h2 {
+  color: var(--kolor-wiodacy);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.nadtytul {
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: .85rem;
+  color: var(--kolor-cta);
+}
+
+/* ---------------------------------------------------------
+   SEKCJA 3. Obszar dotyku – min. 44 × 44 px (NIE USUWAĆ)
+   --------------------------------------------------------- */
+.btn,
+.nav-link,
+.navbar-brand,
+.navbar-toggler,
+.stopka a,
+.karta-kontakt a {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.btn,
+.nav-link,
+.stopka a,
+.karta-kontakt a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+}
+
+.form-control,
+.form-select {
+  min-height: 44px;
+}
+
+.form-check-input {
+  width: 1.4em;
+  height: 1.4em;
+}
+
+/* ---------------------------------------------------------
+   SEKCJA 4. Własne komponenty
+   --------------------------------------------------------- */
+
+/* Menu (podwójna klasa, by nadpisać jasnoszare linki z navbar[data-bs-theme=dark]) */
+.navbar.navbar-marki {
+  background-color: var(--kolor-wiodacy);
+  --bs-navbar-color: #fff;
+  --bs-navbar-hover-color: #fff;
+  --bs-navbar-active-color: #fff;
+  --bs-navbar-brand-color: #fff;
+  --bs-navbar-brand-hover-color: #fff;
+}
+
+.navbar-marki .nav-link {
+  padding-left: .9rem;
+  padding-right: .9rem;
+}
+
+.navbar-marki .nav-link:hover,
+.navbar-marki .nav-link.active {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
+}
+
+/* Przyciski */
+.btn {
+  font-weight: 600;
+  padding-left: 1.4rem;
+  padding-right: 1.4rem;
+}
+
+.btn-cta {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--kolor-cta);
+  --bs-btn-border-color: var(--kolor-cta);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--kolor-cta);
+  --bs-btn-hover-border-color: var(--kolor-cta);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--kolor-cta);
+  --bs-btn-active-border-color: var(--kolor-cta);
+}
+
+.btn-cta:hover,
+.btn-cta:focus-visible {
+  filter: brightness(0.88);
+}
+
+.btn-obrys {
+  --bs-btn-color: var(--kolor-wiodacy);
+  --bs-btn-border-color: var(--kolor-wiodacy);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--kolor-wiodacy);
+  --bs-btn-hover-border-color: var(--kolor-wiodacy);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--kolor-wiodacy);
+}
+
+/* Biały obrys – na ciemnym tle */
+.btn-jasny {
+  --bs-btn-color: #fff;
+  --bs-btn-border-color: #fff;
+  --bs-btn-hover-color: var(--kolor-wiodacy);
+  --bs-btn-hover-bg: #fff;
+  --bs-btn-hover-border-color: #fff;
+  --bs-btn-active-color: var(--kolor-wiodacy);
+  --bs-btn-active-bg: #fff;
+}
+
+/* Biały przycisk – na tle CTA */
+.btn-bialy {
+  --bs-btn-color: var(--kolor-cta);
+  --bs-btn-bg: #fff;
+  --bs-btn-border-color: #fff;
+  --bs-btn-hover-color: var(--kolor-wiodacy);
+  --bs-btn-hover-bg: #fff;
+  --bs-btn-hover-border-color: #fff;
+  --bs-btn-active-color: var(--kolor-wiodacy);
+  --bs-btn-active-bg: #fff;
+}
+
+/* Hero */
+.hero {
+  background-color: var(--kolor-wiodacy);
+  color: #fff;
+}
+
+.hero h1 {
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.hero .lead {
+  color: #fff;
+}
+
+.hero-obraz {
+  border-radius: 1.5rem;
+}
+
+.odznaki {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.odznaki li {
+  border: 1px solid #fff;
+  border-radius: 2rem;
+  padding: .3rem .9rem;
+  font-size: .95rem;
+}
+
+/* Nagłówek podstron */
+.naglowek-podstrony {
+  background-color: var(--kolor-pomocniczy);
+}
+
+.naglowek-podstrony .lead {
+  max-width: 40rem;
+}
+
+/* Sekcja z jasnym tłem */
+.sekcja-jasna {
+  background-color: var(--kolor-pomocniczy);
+}
+
+/* Karty oferty, produktów i wpisów */
+.karta-oferty {
+  border: 0;
+  border-top: 4px solid var(--kolor-cta);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.karta-oferty:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 .75rem 1.5rem rgba(0, 0, 0, .12);
+}
+
+.karta-oferty .card-title {
+  color: var(--kolor-wiodacy);
+}
+
+.cena {
+  font-family: var(--font-naglowki);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--kolor-cta);
+}
+
+.meta-wpisu {
+  font-size: .95rem;
+  color: var(--kolor-tekst);
+}
+
+/* Kroki „Jak to działa” */
+.krok-numer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--kolor-cta);
+  color: #fff;
+  font-family: var(--font-naglowki);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.krok h3 {
+  color: var(--kolor-wiodacy);
+}
+
+/* Liczby w sekcji „O nas” */
+.liczba {
+  font-family: var(--font-naglowki);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--kolor-cta);
+  line-height: 1.1;
+}
+
+.kafel-liczby {
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 1.25rem .75rem;
+  height: 100%;
+}
+
+/* Baner z wezwaniem do działania */
+.baner-cta {
+  background-color: var(--kolor-cta);
+  color: #fff;
+  border-radius: 1.5rem;
+}
+
+.baner-cta h2 {
+  color: #fff;
+}
+
+/* Formularz */
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  border-color: var(--kolor-wiodacy);
+  box-shadow: 0 0 0 .2rem rgba(var(--bs-primary-rgb), .25);
+}
+
+.form-check-input:checked {
+  background-color: var(--kolor-wiodacy);
+  border-color: var(--kolor-wiodacy);
+}
+
+.karta-kontakt {
+  background-color: var(--kolor-pomocniczy);
+  border: 0;
+}
+
+.karta-kontakt h2 {
+  font-size: 1.3rem;
+}
+
+/* Stopka */
+.stopka {
+  background-color: var(--kolor-wiodacy);
+  color: #fff;
+}
+
+.stopka h2 {
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.stopka a {
+  color: #fff;
+  justify-content: flex-start;
+}
+
+.stopka a:hover {
+  text-decoration: none;
+}
